@@ -25,20 +25,20 @@ public class Usuario implements Serializable{
 	@Column(name="senha", nullable=false)
 	private String senha;
 	
+	@Column(name="email")
+	private String email;
+	
 	@Column(name="status", nullable=false)
 	private Character status;
 	
-	@Column(name="tipo_usuario", nullable=false)
-	private Character tipoUsuario;
+	@Column(name="data_criacao", nullable=false)
+	private Date dataCriacao;
 	
-	@Column(name="dt_cadastro", nullable=false)
-	private Date dtCadastro;
+	@Column(name="data_alteracao", nullable=true)
+	private Date dataAlteracao;
 	
-	@Column(name="dt_ativacao", nullable=true)
-	private Date dtAtivacao;
-	
-	@Column(name="dt_inativacao", nullable=true)
-	private Date dtInativacao;
+	@Column(name = "flag_ativo")
+	private Boolean flagAtivo;
 	
 	public Integer getIdUsuario() {
 		return idUsuario;
@@ -71,69 +71,37 @@ public class Usuario implements Serializable{
 	public void setStatus(Character status) {
 		this.status = status;
 	}
-	
-	public Character getTipoUsuario() {
-		return tipoUsuario;
+
+	public String getEmail() {
+		return email;
 	}
-	
-	public void setTipoUsuario(Character tipoUsuario) {
-		this.tipoUsuario = tipoUsuario;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
-	public Date getDtCadastro() {
-		return dtCadastro;
+
+	public Date getDataCriacao() {
+		return dataCriacao;
 	}
-	
-	public void setDtCadastro(Date dtCadastro) {
-		this.dtCadastro = dtCadastro;
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
-	
-	public Date getDtAtivacao() {
-		return dtAtivacao;
+
+	public Date getDataAlteracao() {
+		return dataAlteracao;
 	}
-	public void setDtAtivacao(Date dtAtivacao) {
-		this.dtAtivacao = dtAtivacao;
+
+	public void setDataAlteracao(Date dataAlteracao) {
+		this.dataAlteracao = dataAlteracao;
 	}
-	
-	public Date getDtInativacao() {
-		return dtInativacao;
+
+	public Boolean getFlagAtivo() {
+		return flagAtivo;
 	}
-	
-	public void setDtInativacao(Date dtInativacao) {
-		this.dtInativacao = dtInativacao;
-	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((idUsuario == null) ? 0 : idUsuario.hashCode());
-		return result;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		if (idUsuario == null) {
-			if (other.idUsuario != null)
-				return false;
-		} else if (!idUsuario.equals(other.idUsuario))
-			return false;
-		return true;
-	}
-	
-	@Override
-	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", login=" + login
-				+ ", senha=" + senha + ", status=" + status + ", tipoUsuario="
-				+ tipoUsuario + ", dtCadastro=" + dtCadastro + ", dtInativacao=" + dtInativacao + "]";
+
+	public void setFlagAtivo(Boolean flagAtivo) {
+		this.flagAtivo = flagAtivo;
 	}
 	
 }

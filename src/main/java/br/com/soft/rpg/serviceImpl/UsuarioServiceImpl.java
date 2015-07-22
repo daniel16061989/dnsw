@@ -1,7 +1,6 @@
 package br.com.soft.rpg.serviceImpl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,13 +63,5 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario> implements U
 			erros.add(" SENHA");
 		if(!(usuario.getStatus() != null && !usuario.getStatus().equals(' ')))
 			erros.add(" STATUS");
-		if(!(usuario.getTipoUsuario() != null && !usuario.getTipoUsuario().equals(' ')))
-			erros.add(" TIPO USUARIO");
-		
-		if(!erros.isEmpty())
-			throw new RpgGenericException("Campos obrigat�rios n�o informados [" + erros.toString().replace("[", "(").replace("]", ")") + "]");
-
-		if(usuario.getDtCadastro() == null)
-			usuario.setDtCadastro(new Date(System.currentTimeMillis()));
 	}
 }
